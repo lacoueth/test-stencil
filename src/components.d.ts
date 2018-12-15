@@ -49,6 +49,19 @@ export namespace Components {
     'heading'?: string;
   }
 
+  interface DocumentPrinter {
+    /**
+    * The Markdown-Katex-HTML raw text input
+    */
+    'mdHtmlContent': string;
+  }
+  interface DocumentPrinterAttributes extends StencilHTMLAttributes {
+    /**
+    * The Markdown-Katex-HTML raw text input
+    */
+    'mdHtmlContent'?: string;
+  }
+
   interface HideShow {
     /**
     * The content annotated
@@ -114,15 +127,17 @@ export namespace Components {
 
   interface YoutubeVideo {
     /**
-    * The content annotated
+    * The video id
     */
     'id': string;
+    'src': string;
   }
   interface YoutubeVideoAttributes extends StencilHTMLAttributes {
     /**
-    * The content annotated
+    * The video id
     */
     'id'?: string;
+    'src'?: string;
   }
 }
 
@@ -130,6 +145,7 @@ declare global {
   interface StencilElementInterfaces {
     'AnnotationMark': Components.AnnotationMark;
     'ContentBox': Components.ContentBox;
+    'DocumentPrinter': Components.DocumentPrinter;
     'HideShow': Components.HideShow;
     'MyComponent': Components.MyComponent;
     'SingleImage': Components.SingleImage;
@@ -139,6 +155,7 @@ declare global {
   interface StencilIntrinsicElements {
     'annotation-mark': Components.AnnotationMarkAttributes;
     'content-box': Components.ContentBoxAttributes;
+    'document-printer': Components.DocumentPrinterAttributes;
     'hide-show': Components.HideShowAttributes;
     'my-component': Components.MyComponentAttributes;
     'single-image': Components.SingleImageAttributes;
@@ -156,6 +173,12 @@ declare global {
   var HTMLContentBoxElement: {
     prototype: HTMLContentBoxElement;
     new (): HTMLContentBoxElement;
+  };
+
+  interface HTMLDocumentPrinterElement extends Components.DocumentPrinter, HTMLStencilElement {}
+  var HTMLDocumentPrinterElement: {
+    prototype: HTMLDocumentPrinterElement;
+    new (): HTMLDocumentPrinterElement;
   };
 
   interface HTMLHideShowElement extends Components.HideShow, HTMLStencilElement {}
@@ -185,6 +208,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'annotation-mark': HTMLAnnotationMarkElement
     'content-box': HTMLContentBoxElement
+    'document-printer': HTMLDocumentPrinterElement
     'hide-show': HTMLHideShowElement
     'my-component': HTMLMyComponentElement
     'single-image': HTMLSingleImageElement
@@ -194,6 +218,7 @@ declare global {
   interface ElementTagNameMap {
     'annotation-mark': HTMLAnnotationMarkElement;
     'content-box': HTMLContentBoxElement;
+    'document-printer': HTMLDocumentPrinterElement;
     'hide-show': HTMLHideShowElement;
     'my-component': HTMLMyComponentElement;
     'single-image': HTMLSingleImageElement;

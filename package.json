@@ -1,5 +1,5 @@
 {
-  "name": "t-stencil",
+  "name": "treekomponents",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "module": "dist/esm/index.js",
@@ -14,11 +14,13 @@
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
-    "@stencil/router": "^0.3.1",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "treekoditor": "^1.0.2"
   },
   "devDependencies": {
     "@stencil/core": "0.16.0"

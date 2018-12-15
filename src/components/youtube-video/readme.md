@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description           | Type     | Default     |
-| -------- | --------- | --------------------- | -------- | ----------- |
-| `id`     | `id`      | The content annotated | `string` | `undefined` |
+| Property | Attribute | Description  | Type     | Default     |
+| -------- | --------- | ------------ | -------- | ----------- |
+| `id`     | `id`      | The video id | `string` | `undefined` |
+| `src`    | `src`     |              | `string` | `undefined` |
 
 
 ----------------------------------------------
