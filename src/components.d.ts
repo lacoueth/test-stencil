@@ -12,73 +12,6 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface AnnotationMark {
-    /**
-    * The content annotated
-    */
-    'annotated': string;
-    /**
-    * The content of the annotation
-    */
-    'annotation': string;
-  }
-  interface AnnotationMarkAttributes extends StencilHTMLAttributes {
-    /**
-    * The content annotated
-    */
-    'annotated'?: string;
-    /**
-    * The content of the annotation
-    */
-    'annotation'?: string;
-    'onOnOpenAnnotation'?: (event: CustomEvent) => void;
-  }
-
-  interface ContentBox {
-    /**
-    * The content annotated
-    */
-    'classes': string;
-    'heading': string;
-  }
-  interface ContentBoxAttributes extends StencilHTMLAttributes {
-    /**
-    * The content annotated
-    */
-    'classes'?: string;
-    'heading'?: string;
-  }
-
-  interface DocumentPrinter {
-    /**
-    * The Markdown-Katex-HTML raw text input
-    */
-    'mdHtmlContent': string;
-  }
-  interface DocumentPrinterAttributes extends StencilHTMLAttributes {
-    /**
-    * The Markdown-Katex-HTML raw text input
-    */
-    'mdHtmlContent'?: string;
-  }
-
-  interface HideShow {
-    /**
-    * The content annotated
-    */
-    'classes': string;
-    'heading': string;
-    'isHidden': boolean;
-  }
-  interface HideShowAttributes extends StencilHTMLAttributes {
-    /**
-    * The content annotated
-    */
-    'classes'?: string;
-    'heading'?: string;
-    'isHidden'?: boolean;
-  }
-
   interface MyComponent {
     /**
     * The first name
@@ -108,16 +41,107 @@ export namespace Components {
     'middle'?: string;
   }
 
-  interface SingleImage {
+  interface TrkoAnnotation {
+    /**
+    * The content annotated
+    */
+    'annotated': string;
+    /**
+    * The content of the annotation
+    */
+    'annotation': string;
+  }
+  interface TrkoAnnotationAttributes extends StencilHTMLAttributes {
+    /**
+    * The content annotated
+    */
+    'annotated'?: string;
+    /**
+    * The content of the annotation
+    */
+    'annotation'?: string;
+    'onAnnotationClick'?: (event: CustomEvent) => void;
+  }
+
+  interface TrkoBox {
+    /**
+    * The class(es) to add to the container
+    */
+    'class': string;
+    /**
+    * Title of the box
+    */
+    'heading': string;
+    'id': string;
+  }
+  interface TrkoBoxAttributes extends StencilHTMLAttributes {
+    /**
+    * The class(es) to add to the container
+    */
+    'class'?: string;
+    /**
+    * Title of the box
+    */
+    'heading'?: string;
+    'id'?: string;
+  }
+
+  interface TrkoDocPrinter {
+    /**
+    * The Markdown-Katex-HTML raw text input
+    */
+    'mdHtmlContent': string;
+  }
+  interface TrkoDocPrinterAttributes extends StencilHTMLAttributes {
+    /**
+    * The Markdown-Katex-HTML raw text input
+    */
+    'mdHtmlContent'?: string;
+  }
+
+  interface TrkoHideShow {
+    /**
+    * The title of the hidden block
+    */
+    'heading': string;
+    /**
+    * Initial opening state of the block
+    */
+    'hidden': boolean;
+  }
+  interface TrkoHideShowAttributes extends StencilHTMLAttributes {
+    /**
+    * The title of the hidden block
+    */
+    'heading'?: string;
+    /**
+    * Initial opening state of the block
+    */
+    'hidden'?: boolean;
+  }
+
+  interface TrkoImage {
+    /**
+    * Description of the image
+    */
     'description': string;
+    /**
+    * Title of the image
+    */
     'title': string;
     /**
     * The content annotated
     */
     'url': string;
   }
-  interface SingleImageAttributes extends StencilHTMLAttributes {
+  interface TrkoImageAttributes extends StencilHTMLAttributes {
+    /**
+    * Description of the image
+    */
     'description'?: string;
+    /**
+    * Title of the image
+    */
     'title'?: string;
     /**
     * The content annotated
@@ -125,67 +149,51 @@ export namespace Components {
     'url'?: string;
   }
 
-  interface YoutubeVideo {
+  interface TrkoYoutubeVideo {
     /**
-    * The video id
+    * Description of the video
     */
-    'id': string;
+    'description': string;
     'src': string;
-  }
-  interface YoutubeVideoAttributes extends StencilHTMLAttributes {
     /**
-    * The video id
+    * The YT video id
     */
-    'id'?: string;
+    'video-id': string;
+  }
+  interface TrkoYoutubeVideoAttributes extends StencilHTMLAttributes {
+    /**
+    * Description of the video
+    */
+    'description'?: string;
     'src'?: string;
+    /**
+    * The YT video id
+    */
+    'video-id'?: string;
   }
 }
 
 declare global {
   interface StencilElementInterfaces {
-    'AnnotationMark': Components.AnnotationMark;
-    'ContentBox': Components.ContentBox;
-    'DocumentPrinter': Components.DocumentPrinter;
-    'HideShow': Components.HideShow;
     'MyComponent': Components.MyComponent;
-    'SingleImage': Components.SingleImage;
-    'YoutubeVideo': Components.YoutubeVideo;
+    'TrkoAnnotation': Components.TrkoAnnotation;
+    'TrkoBox': Components.TrkoBox;
+    'TrkoDocPrinter': Components.TrkoDocPrinter;
+    'TrkoHideShow': Components.TrkoHideShow;
+    'TrkoImage': Components.TrkoImage;
+    'TrkoYoutubeVideo': Components.TrkoYoutubeVideo;
   }
 
   interface StencilIntrinsicElements {
-    'annotation-mark': Components.AnnotationMarkAttributes;
-    'content-box': Components.ContentBoxAttributes;
-    'document-printer': Components.DocumentPrinterAttributes;
-    'hide-show': Components.HideShowAttributes;
     'my-component': Components.MyComponentAttributes;
-    'single-image': Components.SingleImageAttributes;
-    'youtube-video': Components.YoutubeVideoAttributes;
+    'trko-annotation': Components.TrkoAnnotationAttributes;
+    'trko-box': Components.TrkoBoxAttributes;
+    'trko-doc-printer': Components.TrkoDocPrinterAttributes;
+    'trko-hide-show': Components.TrkoHideShowAttributes;
+    'trko-image': Components.TrkoImageAttributes;
+    'trko-youtube-video': Components.TrkoYoutubeVideoAttributes;
   }
 
-
-  interface HTMLAnnotationMarkElement extends Components.AnnotationMark, HTMLStencilElement {}
-  var HTMLAnnotationMarkElement: {
-    prototype: HTMLAnnotationMarkElement;
-    new (): HTMLAnnotationMarkElement;
-  };
-
-  interface HTMLContentBoxElement extends Components.ContentBox, HTMLStencilElement {}
-  var HTMLContentBoxElement: {
-    prototype: HTMLContentBoxElement;
-    new (): HTMLContentBoxElement;
-  };
-
-  interface HTMLDocumentPrinterElement extends Components.DocumentPrinter, HTMLStencilElement {}
-  var HTMLDocumentPrinterElement: {
-    prototype: HTMLDocumentPrinterElement;
-    new (): HTMLDocumentPrinterElement;
-  };
-
-  interface HTMLHideShowElement extends Components.HideShow, HTMLStencilElement {}
-  var HTMLHideShowElement: {
-    prototype: HTMLHideShowElement;
-    new (): HTMLHideShowElement;
-  };
 
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
@@ -193,36 +201,60 @@ declare global {
     new (): HTMLMyComponentElement;
   };
 
-  interface HTMLSingleImageElement extends Components.SingleImage, HTMLStencilElement {}
-  var HTMLSingleImageElement: {
-    prototype: HTMLSingleImageElement;
-    new (): HTMLSingleImageElement;
+  interface HTMLTrkoAnnotationElement extends Components.TrkoAnnotation, HTMLStencilElement {}
+  var HTMLTrkoAnnotationElement: {
+    prototype: HTMLTrkoAnnotationElement;
+    new (): HTMLTrkoAnnotationElement;
   };
 
-  interface HTMLYoutubeVideoElement extends Components.YoutubeVideo, HTMLStencilElement {}
-  var HTMLYoutubeVideoElement: {
-    prototype: HTMLYoutubeVideoElement;
-    new (): HTMLYoutubeVideoElement;
+  interface HTMLTrkoBoxElement extends Components.TrkoBox, HTMLStencilElement {}
+  var HTMLTrkoBoxElement: {
+    prototype: HTMLTrkoBoxElement;
+    new (): HTMLTrkoBoxElement;
+  };
+
+  interface HTMLTrkoDocPrinterElement extends Components.TrkoDocPrinter, HTMLStencilElement {}
+  var HTMLTrkoDocPrinterElement: {
+    prototype: HTMLTrkoDocPrinterElement;
+    new (): HTMLTrkoDocPrinterElement;
+  };
+
+  interface HTMLTrkoHideShowElement extends Components.TrkoHideShow, HTMLStencilElement {}
+  var HTMLTrkoHideShowElement: {
+    prototype: HTMLTrkoHideShowElement;
+    new (): HTMLTrkoHideShowElement;
+  };
+
+  interface HTMLTrkoImageElement extends Components.TrkoImage, HTMLStencilElement {}
+  var HTMLTrkoImageElement: {
+    prototype: HTMLTrkoImageElement;
+    new (): HTMLTrkoImageElement;
+  };
+
+  interface HTMLTrkoYoutubeVideoElement extends Components.TrkoYoutubeVideo, HTMLStencilElement {}
+  var HTMLTrkoYoutubeVideoElement: {
+    prototype: HTMLTrkoYoutubeVideoElement;
+    new (): HTMLTrkoYoutubeVideoElement;
   };
 
   interface HTMLElementTagNameMap {
-    'annotation-mark': HTMLAnnotationMarkElement
-    'content-box': HTMLContentBoxElement
-    'document-printer': HTMLDocumentPrinterElement
-    'hide-show': HTMLHideShowElement
     'my-component': HTMLMyComponentElement
-    'single-image': HTMLSingleImageElement
-    'youtube-video': HTMLYoutubeVideoElement
+    'trko-annotation': HTMLTrkoAnnotationElement
+    'trko-box': HTMLTrkoBoxElement
+    'trko-doc-printer': HTMLTrkoDocPrinterElement
+    'trko-hide-show': HTMLTrkoHideShowElement
+    'trko-image': HTMLTrkoImageElement
+    'trko-youtube-video': HTMLTrkoYoutubeVideoElement
   }
 
   interface ElementTagNameMap {
-    'annotation-mark': HTMLAnnotationMarkElement;
-    'content-box': HTMLContentBoxElement;
-    'document-printer': HTMLDocumentPrinterElement;
-    'hide-show': HTMLHideShowElement;
     'my-component': HTMLMyComponentElement;
-    'single-image': HTMLSingleImageElement;
-    'youtube-video': HTMLYoutubeVideoElement;
+    'trko-annotation': HTMLTrkoAnnotationElement;
+    'trko-box': HTMLTrkoBoxElement;
+    'trko-doc-printer': HTMLTrkoDocPrinterElement;
+    'trko-hide-show': HTMLTrkoHideShowElement;
+    'trko-image': HTMLTrkoImageElement;
+    'trko-youtube-video': HTMLTrkoYoutubeVideoElement;
   }
 
 

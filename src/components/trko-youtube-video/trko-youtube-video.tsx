@@ -2,7 +2,7 @@ import { Component, Prop, Element, State } from '@stencil/core';
 // import { format } from "../../utils/utils";
 
 @Component({
-  tag: 'youtube-video',
+  tag: 'trko-youtube-video',
   shadow: false,
   styles: `
   iframe {
@@ -12,9 +12,14 @@ import { Component, Prop, Element, State } from '@stencil/core';
 })
 export class YoutubeVideoComponent {
   /**
-   * The video id
+   * The YT video id
    */
-  @Prop() id: string;
+  @Prop() 'video-id': string;
+
+  /**
+   * Description of the video
+   */
+  @Prop() 'description': string;
 
   @Prop() src: string;
 
@@ -58,20 +63,21 @@ export class YoutubeVideoComponent {
   }
 
   getEmbedUrl() {
-    return `http://www.youtube.com/embed/${this.id}`;
+    return `http://www.youtube.com/embed/${this['video-id']}`;
   }
 
   render() {
     return (
-      <div class="youtube-video-container">
+      <figure class="trko-youtube-video-container">
         <iframe
-          id="ytplayer"
+          id={'ytplayer' + this['video-id']}
           width="100%"
           height="250px"
           src={this.realSrc}
           frameborder="0"
         />
-      </div>
+        <figcaption>{this.description}</figcaption>
+      </figure>
     );
   }
 }

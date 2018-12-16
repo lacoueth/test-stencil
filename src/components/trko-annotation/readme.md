@@ -15,9 +15,9 @@
 
 ## Events
 
-| Event              | Description | Detail |
-| ------------------ | ----------- | ------ |
-| `onOpenAnnotation` |             | void   |
+| Event             | Description | Detail |
+| ----------------- | ----------- | ------ |
+| `annotationClick` |             | void   |
 
 
 ----------------------------------------------

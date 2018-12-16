@@ -2,11 +2,11 @@ import { Component, Prop, EventEmitter, Event } from "@stencil/core";
 // import { format } from "../../utils/utils";
 
 @Component({
-  tag: "annotation-mark",
+  tag: "trko-annotation",
   shadow: false,
   styles: ``
 })
-export class AnnotationComponent {
+export class TrkoAnnotationComponent {
   /**
    * The content annotated
    */
@@ -17,12 +17,12 @@ export class AnnotationComponent {
    */
   @Prop() annotation: string;
 
-  @Event() onOpenAnnotation: EventEmitter;
+  @Event() annotationClick: EventEmitter;
 
   openAnnotation() {
-    this.onOpenAnnotation.emit({
-      text: this.annotated,
-      content: this.annotation
+    this.annotationClick.emit({
+      annotated: this.annotated,
+      annotation: this.annotation
     });
   }
 
@@ -31,7 +31,7 @@ export class AnnotationComponent {
       <span
         onClick={() => this.openAnnotation()}
         innerHTML={this.annotated}
-        class="annotated-text"
+        class="trko-annotated-text"
       />
     );
   }

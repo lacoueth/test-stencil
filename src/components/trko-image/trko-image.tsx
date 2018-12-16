@@ -1,19 +1,26 @@
-import { Component, Prop } from "@stencil/core";
+import { Component, Prop } from '@stencil/core';
 // import { format } from "../../utils/utils";
 
 @Component({
-  tag: "single-image",
+  tag: 'trko-image',
   shadow: false,
   styles: `
   `
 })
-export class SingleImageComponent {
+export class TrkoImageComponent {
   /**
    * The content annotated
    */
   @Prop() url: string;
 
+  /**
+   * Description of the image
+   */
   @Prop() description: string;
+
+  /**
+   * Title of the image
+   */
   @Prop() title: string;
 
   render() {

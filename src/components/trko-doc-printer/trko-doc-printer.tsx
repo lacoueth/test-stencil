@@ -2,12 +2,20 @@ import { Component, Prop } from '@stencil/core';
 
 import { ra2ta, ta2pa, rt2ra, pa2rh } from 'treekoditor';
 
+/* import * as trko from 'treekoditor/lib-esm';
+// import {pa2rh} from 'treekoditor';
+
+const ra2ta = trko.ra2ta;
+const rt2ra = trko.rt2ra;
+const ta2pa = trko.ta2pa;
+const pa2rh = trko.pa2rh; */
+
 @Component({
-  tag: 'document-printer',
+  tag: 'trko-doc-printer',
   styleUrl: 'document-printer.css',
   shadow: false
 })
-export class DocumentPrinterComponent {
+export class TrkoDocPrinterComponent {
   /**
    * The Markdown-Katex-HTML raw text input
    */
@@ -20,6 +28,6 @@ export class DocumentPrinterComponent {
   }
 
   render() {
-    return <section innerHTML={this.getInner()} />;
+    return <section class="trko-doc-section" innerHTML={this.getInner()} />;
   }
 }
