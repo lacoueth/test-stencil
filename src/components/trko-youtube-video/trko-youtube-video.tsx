@@ -63,7 +63,7 @@ export class YoutubeVideoComponent {
   }
 
   getEmbedUrl() {
-    return `http://www.youtube.com/embed/${this['video-id']}`;
+    return `https://www.youtube.com/embed/${this['video-id']}`;
   }
 
   render() {
