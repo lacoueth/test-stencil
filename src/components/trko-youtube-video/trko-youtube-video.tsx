@@ -19,7 +19,7 @@ export class YoutubeVideoComponent {
   /**
    * Description of the video
    */
-  @Prop() 'description': string;
+  @Prop() description: string;
 
   @Prop() src: string;
 
@@ -69,13 +69,15 @@ export class YoutubeVideoComponent {
   render() {
     return (
       <figure class="trko-youtube-video-container">
-        <iframe
-          id={'ytplayer' + this['video-id']}
-          width="100%"
-          height="250px"
-          src={this.realSrc}
-          frameborder="0"
-        />
+        <div class="trko-youtube-video-iframe-container">
+          <iframe
+            id={'ytplayer' + this['video-id']}
+            width="100%"
+            height="250px"
+            src={this.realSrc}
+            frameborder="0"
+          />
+        </div>
         <figcaption>{this.description}</figcaption>
       </figure>
     );

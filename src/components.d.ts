@@ -12,35 +12,6 @@ import '@stencil/core';
 
 export namespace Components {
 
-  interface MyComponent {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
-  interface MyComponentAttributes extends StencilHTMLAttributes {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
-
   interface TrkoAnnotation {
     /**
     * The content annotated
@@ -175,7 +146,6 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
-    'MyComponent': Components.MyComponent;
     'TrkoAnnotation': Components.TrkoAnnotation;
     'TrkoBox': Components.TrkoBox;
     'TrkoDocPrinter': Components.TrkoDocPrinter;
@@ -185,7 +155,6 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
-    'my-component': Components.MyComponentAttributes;
     'trko-annotation': Components.TrkoAnnotationAttributes;
     'trko-box': Components.TrkoBoxAttributes;
     'trko-doc-printer': Components.TrkoDocPrinterAttributes;
@@ -194,12 +163,6 @@ declare global {
     'trko-youtube-video': Components.TrkoYoutubeVideoAttributes;
   }
 
-
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
-  };
 
   interface HTMLTrkoAnnotationElement extends Components.TrkoAnnotation, HTMLStencilElement {}
   var HTMLTrkoAnnotationElement: {
@@ -238,7 +201,6 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement
     'trko-annotation': HTMLTrkoAnnotationElement
     'trko-box': HTMLTrkoBoxElement
     'trko-doc-printer': HTMLTrkoDocPrinterElement
@@ -248,7 +210,6 @@ declare global {
   }
 
   interface ElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
     'trko-annotation': HTMLTrkoAnnotationElement;
     'trko-box': HTMLTrkoBoxElement;
     'trko-doc-printer': HTMLTrkoDocPrinterElement;

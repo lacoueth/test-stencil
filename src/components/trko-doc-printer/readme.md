@@ -1,4 +1,4 @@
-# my-component
+# `Trko-doc-printer`
 
 
 
@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property        | Attribute         | Description                            | Type     | Default     |
-| --------------- | ----------------- | -------------------------------------- | -------- | ----------- |
-| `mdHtmlContent` | `md-html-content` | The Markdown-Katex-HTML raw text input | `string` | `undefined` |
+| Property        | Attribute         | Description                            | Type     | Default |
+| --------------- | ----------------- | -------------------------------------- | -------- | ------- |
+| `mdHtmlContent` | `md-html-content` | The Markdown-Katex-HTML raw text input | `string` | `''`    |
 
 
 ----------------------------------------------

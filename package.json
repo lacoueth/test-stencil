@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "treekoditor": "^1.0.3"
+    "treekoditor": "^1.0.5"
   },
   "devDependencies": {
     "@stencil/core": "0.16.0"

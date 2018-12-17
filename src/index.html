@@ -11,13 +11,76 @@
     <script src="/build/secondcomponent.js"></script>
   </head>
   <body>
-    <my-component
-      first="Stencil"
-      last="'Don't call me a framework' JS"
-    ></my-component>
-    <second-component
-      first="Stencil"
-      last="'Don't call me a framework' JS"
-    ></second-component>
+    <trko-doc-printer>
+      <!--
+        <h1>Annotation</h1>
+        <trko-annotation annotated="text annotated">
+          Inside anotation
+        </trko-annotation>
+
+        <h1>Box</h1>
+        <trko-box heading="Title" class="blue theorem">
+          Hello inside the box
+        </trko-box>
+
+        <h1>Hide show</h1>
+        <trko-hide-show heading="hide show heading">
+          Hello inside the hide-show
+        </trko-hide-show>
+
+        <h1>Image</h1>
+        <trko-image
+          url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
+          title="title of the image"
+          description="description of the image"
+        ></trko-image>
+
+        <h1>Youtube video</h1>
+        <trko-youtube-video
+          video-id="5LlPJeu9F8I"
+          description="description of the video"
+        ></trko-youtube-video>
+      -->
+    </trko-doc-printer>
+
+    <script>
+      const printer = document.getElementsByTagName('trko-doc-printer')[0];
+
+      if (printer) {
+        printer.mdHtmlContent = `
+                                            <h1>Annotation</h1>
+                                            <trko-annotation annotated="text annotated">
+                                            Inside anotation
+                                            </trko-annotation>
+                                            
+                                            <h1>Box</h1>
+                                            <trko-box heading="Title" class="blue theorem">
+                                              Hello inside the box
+                                            </trko-box>
+                                            
+                                            <h1>Hide show</h1>
+                                            <trko-hide-show heading="hide show heading">
+                                            Hello inside the hide-show
+                                            </trko-hide-show>
+                                            
+                                            <h1>Image</h1>
+                                            <trko-image
+                                              url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
+                                              title="title of the image"
+                                              description="description of the image"
+                                            ></trko-image>
+                                            
+                                            <h1>Youtube video</h1>
+                                            <trko-youtube-video
+                                              video-id="5LlPJeu9F8I"
+                                              description="description of the video"
+                                            ></trko-youtube-video>
+                                                                  `.replace(
+          /\n(\s)+/g,
+          '\n'
+        );
+        console.log(printer.mdHtmlContent);
+      }
+    </script>
   </body>
 </html>

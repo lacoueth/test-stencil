@@ -52,11 +52,11 @@ You need then to import KaTeX math font styles in your `index.html` to have a Te
 />
 ```
 
-# Components
-
 <a name="document-printer"></a>
 
-### Global printer : `trko-doc-printer`
+# Global component : the printer `trko-doc-printer`
+
+It should encapsulate the rest of your treekomponents. It will handle the job to parse what is Markdown and what is HTML. Components that require a **slot** param will i-only work properly inside that `trko-doc-printer` tag.
 
 ```html
 <trko-doc-printer mdHtmlContent="<your input text>"></trko-doc-printer>
@@ -68,7 +68,7 @@ You need then to import KaTeX math font styles in your `index.html` to have a Te
 <section class="trko-doc-section">...doc serialized</section>
 ```
 
----
+# Components
 
 <a name="youtube-video"></a>
 
@@ -91,9 +91,11 @@ Youtube `iframe` is lazy-loaded.
 ##### Rendered :
 
 ```html
-<figure>
-<iframe src="https://youtube..../id=<video-id>">
-<figcaption>...description</figcaption>
+<figure class="trko-youtube-video-container">
+  <div class="trko-youtube-video-iframe-container">
+    <iframe src="https://youtube..../id=<video-id>">
+  </div>
+  <figcaption>...description</figcaption>
 </figure>
 ```
 
@@ -104,7 +106,7 @@ Youtube `iframe` is lazy-loaded.
 ### Hide-show : `trko-hide-show`
 
 ```html
-<trko-hide-show heading="<heading>" hidden="True/False">
+<trko-hide-show heading="<heading>" hidden="true || false">
   <!-- any md/katex/HTML -->
 </trko-hide-show>
 ```
@@ -214,5 +216,5 @@ Youtube `iframe` is lazy-loaded.
 ##### Rendered :
 
 ```html
-<span class="annotated-text">...annotated text serialized</span>
+<span class="trko-annotated-text">...annotated text serialized</span>
 ```
