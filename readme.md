@@ -14,6 +14,7 @@ Interactive components :
 Display components :
 
 - [Content box](#content-box)
+- [Blockquote](#blockquote)
 
 Media components :
 
@@ -217,4 +218,43 @@ Youtube `iframe` is lazy-loaded.
 
 ```html
 <span class="trko-annotated-text">...annotated text serialized</span>
+```
+
+---
+
+<a name="blockquote"></a>
+
+### Blockquote : `trko-blockquote`
+
+In addition to Markdown auto-rendering blockquote, there is a blockquote that allows you to set the alignment of the text, separate author name styles, and add a link to the source.
+
+```html
+<trko-blockquote
+  author="<author>"
+  link="<source link>"
+  alignment="left | center | right"
+  class="<your add. classes>"
+>
+  <!-- md/katex/html content of the blockquote -->
+</trko-blockquote>
+```
+
+##### Parameters :
+
+- `author` : the text that you want to put annotation on.
+- `link` : url of a source of the quote or any link you want to provide in addition.
+- `class` : additional classes to the container.
+- `alignment` : alignment of the inner text, possible values are _left_, _center_ or _right_.
+- _quote (in slot)_ : the md-katex-html raw of what the blockquote should contain.
+
+##### Rendered :
+
+```html
+<div
+  class="trko-blockquote-container <your add. classes>"
+  style="text-align: <your alignment>"
+>
+  <blockquote class="trko-blockquote">...quote content</blockquote>
+  <div class="trko-blockquote-author">...author</div>
+</div>
 ```

@@ -34,6 +34,43 @@ export namespace Components {
     'onAnnotationClick'?: (event: CustomEvent) => void;
   }
 
+  interface TrkoBlockquote {
+    /**
+    * Text alignment 'left' | 'center' | 'right'
+    */
+    'alignment': string;
+    /**
+    * Author
+    */
+    'author': string;
+    /**
+    * Additional classes
+    */
+    'class': string;
+    /**
+    * Link to the source
+    */
+    'link': string;
+  }
+  interface TrkoBlockquoteAttributes extends StencilHTMLAttributes {
+    /**
+    * Text alignment 'left' | 'center' | 'right'
+    */
+    'alignment'?: string;
+    /**
+    * Author
+    */
+    'author'?: string;
+    /**
+    * Additional classes
+    */
+    'class'?: string;
+    /**
+    * Link to the source
+    */
+    'link'?: string;
+  }
+
   interface TrkoBox {
     /**
     * The class(es) to add to the container
@@ -147,6 +184,7 @@ export namespace Components {
 declare global {
   interface StencilElementInterfaces {
     'TrkoAnnotation': Components.TrkoAnnotation;
+    'TrkoBlockquote': Components.TrkoBlockquote;
     'TrkoBox': Components.TrkoBox;
     'TrkoDocPrinter': Components.TrkoDocPrinter;
     'TrkoHideShow': Components.TrkoHideShow;
@@ -156,6 +194,7 @@ declare global {
 
   interface StencilIntrinsicElements {
     'trko-annotation': Components.TrkoAnnotationAttributes;
+    'trko-blockquote': Components.TrkoBlockquoteAttributes;
     'trko-box': Components.TrkoBoxAttributes;
     'trko-doc-printer': Components.TrkoDocPrinterAttributes;
     'trko-hide-show': Components.TrkoHideShowAttributes;
@@ -168,6 +207,12 @@ declare global {
   var HTMLTrkoAnnotationElement: {
     prototype: HTMLTrkoAnnotationElement;
     new (): HTMLTrkoAnnotationElement;
+  };
+
+  interface HTMLTrkoBlockquoteElement extends Components.TrkoBlockquote, HTMLStencilElement {}
+  var HTMLTrkoBlockquoteElement: {
+    prototype: HTMLTrkoBlockquoteElement;
+    new (): HTMLTrkoBlockquoteElement;
   };
 
   interface HTMLTrkoBoxElement extends Components.TrkoBox, HTMLStencilElement {}
@@ -202,6 +247,7 @@ declare global {
 
   interface HTMLElementTagNameMap {
     'trko-annotation': HTMLTrkoAnnotationElement
+    'trko-blockquote': HTMLTrkoBlockquoteElement
     'trko-box': HTMLTrkoBoxElement
     'trko-doc-printer': HTMLTrkoDocPrinterElement
     'trko-hide-show': HTMLTrkoHideShowElement
@@ -211,6 +257,7 @@ declare global {
 
   interface ElementTagNameMap {
     'trko-annotation': HTMLTrkoAnnotationElement;
+    'trko-blockquote': HTMLTrkoBlockquoteElement;
     'trko-box': HTMLTrkoBoxElement;
     'trko-doc-printer': HTMLTrkoDocPrinterElement;
     'trko-hide-show': HTMLTrkoHideShowElement;

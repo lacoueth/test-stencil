@@ -8,9 +8,25 @@
     />
     <title>Stencil Component Starter</title>
     <script src="/build/mycomponent.js"></script>
-    <script src="/build/secondcomponent.js"></script>
+
+    <style>
+      body {
+        width: 700px;
+        margin: 0 auto;
+      }
+
+      img {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
+    <trko-blockquote
+      quote="bonjour \n ligne suivante"
+      author="Albert Einstein"
+      alignment="right"
+    ></trko-blockquote>
+
     <trko-doc-printer>
       <!--
         <h1>Annotation</h1>
@@ -47,22 +63,21 @@
       const printer = document.getElementsByTagName('trko-doc-printer')[0];
 
       if (printer) {
-        printer.mdHtmlContent = `
-                                            <h1>Annotation</h1>
-                                            <trko-annotation annotated="text annotated">
-                                            Inside anotation
-                                            </trko-annotation>
-                                            
-                                            <h1>Box</h1>
-                                            <trko-box heading="Title" class="blue theorem">
-                                              Hello inside the box
-                                            </trko-box>
-                                            
-                                            <h1>Hide show</h1>
-                                            <trko-hide-show heading="hide show heading">
-                                            Hello inside the hide-show
-                                            </trko-hide-show>
-                                            
+        printer.mdHtmlContent = '';
+
+        printer.mdHtmlContent += `<trko-blockquote
+      author="Albert Einstein"
+      alignment="right"
+    >bonjour \n ligne suivante</trko-blockquote>`;
+
+        printer.mdHtmlContent += `
+        <h1>Annotation</h1>\n<trko-annotation annotated="text annotated">\nInside anotation\n</trko-annotation>
+        `;
+
+        printer.mdHtmlContent += `<h1>Box</h1><trko-box heading="Title" class="blue theorem">Hello inside the box</trko-box>`;
+        printer.mdHtmlContent += `<h1>Hide show</h1><trko-hide-show heading="hide show heading">Hello inside the hide-show</trko-hide-show>`;
+
+        printer.mdHtmlContent += `
                                             <h1>Image</h1>
                                             <trko-image
                                               url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
