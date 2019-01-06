@@ -30,7 +30,7 @@ Embed components :
 
 `npm install treekomponents --save`
 
-### With a script tag
+### Or with a script tag
 
 Place this script tag
 
@@ -107,7 +107,7 @@ Youtube `iframe` is lazy-loaded.
 ### Hide-show : `trko-hide-show`
 
 ```html
-<trko-hide-show heading="<heading>" hidden="true || false">
+<trko-hide-show heading="<heading>" close="true || false">
   <!-- any md/katex/HTML -->
 </trko-hide-show>
 ```
@@ -116,7 +116,7 @@ Youtube `iframe` is lazy-loaded.
 
 - `heading` : title of the block, that is displayed when the block is hidden.
 - _inner (slot)_ : content inside the block, displayed when open.
-- `hidden` : the initial state of the block, hidden or displayed at first.
+- `close` : the initial state of the block, hidden or displayed at first.
 
 ##### Rendered :
 

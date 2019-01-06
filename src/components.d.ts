@@ -109,23 +109,23 @@ export namespace Components {
 
   interface TrkoHideShow {
     /**
+    * Initial opening state of the block
+    */
+    'close': boolean;
+    /**
     * The title of the hidden block
     */
     'heading': string;
+  }
+  interface TrkoHideShowAttributes extends StencilHTMLAttributes {
     /**
     * Initial opening state of the block
     */
-    'hidden': boolean;
-  }
-  interface TrkoHideShowAttributes extends StencilHTMLAttributes {
+    'close'?: boolean;
     /**
     * The title of the hidden block
     */
     'heading'?: string;
-    /**
-    * Initial opening state of the block
-    */
-    'hidden'?: boolean;
   }
 
   interface TrkoImage {

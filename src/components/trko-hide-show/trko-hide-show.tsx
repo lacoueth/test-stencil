@@ -16,20 +16,20 @@ export class TrkoHideShowComponent {
   /**
    * Initial opening state of the block
    */
-  @Prop({ mutable: true }) hidden: boolean;
+  @Prop({ mutable: true }) close: boolean;
 
   render() {
     return (
       <div class="trko-hide-show-container">
         <div class="trko-hide-show-head">
           <h5>{this.heading}</h5>
-          <button onClick={() => (this.hidden = !this.hidden)}>
-            {this.hidden ? 'Afficher' : 'Masquer'}
+          <button onClick={() => (this.close = !this.close)}>
+            {this.close ? 'Afficher' : 'Masquer'}
           </button>
         </div>
 
         <div
-          class={(this.hidden ? 'closed' : 'opened') + ' trko-hidden-section'}
+          class={(this.close ? 'closed' : 'opened') + ' trko-hidden-section'}
         >
           <slot />
         </div>
