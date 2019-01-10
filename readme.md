@@ -143,7 +143,7 @@ Youtube `iframe` is lazy-loaded.
 ##### Parameters
 
 - `class` : additionnal classes you may want to add to this particular block.
-- `heading` : title of the box.
+- `heading` (*optional*) : title of the box.
 
 ##### Rendered
 
@@ -152,7 +152,7 @@ Youtube `iframe` is lazy-loaded.
   class="trko-box-container <your classes>"
   id="bx-<your heading in kebabCase>"
 >
-  <h5>...title</h5>
+  { if heading : <h5>...title</h5> else ''}
   <div class="trko-box-content"><!-- your inner rendered --></div>
 </div>
 ```

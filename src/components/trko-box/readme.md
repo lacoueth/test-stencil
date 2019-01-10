@@ -9,7 +9,7 @@
 | Property  | Attribute | Description                           | Type     | Default     |
 | --------- | --------- | ------------------------------------- | -------- | ----------- |
 | `class`   | `class`   | The class(es) to add to the container | `string` | `''`        |
-| `heading` | `heading` | Title of the box                      | `string` | `'Note'`    |
+| `heading` | `heading` | Title of the box                      | `string` | `undefined` |
 | `id`      | `id`      |                                       | `string` | `undefined` |
 
 

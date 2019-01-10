@@ -16,7 +16,7 @@ export class BoxComponent {
   /**
    * Title of the box
    */
-  @Prop() heading: string = 'Note';
+  @Prop() heading: string;
 
   @Prop() id: string;
 
@@ -27,7 +27,7 @@ export class BoxComponent {
   render() {
     return (
       <div class={this.getClasses()} id={this.id}>
-        <h5>{this.heading}</h5>
+        {this.heading ? <h5>{this.heading}</h5> : ''}
         <div class="trko-box-content">
           <slot />
         </div>
