@@ -179,6 +179,37 @@ export namespace Components {
     */
     'video-id'?: string;
   }
+
+  interface TrkoYtLight {
+    'channelTitle': string;
+    'clicked': boolean;
+    'coverUrl': string;
+    /**
+    * Description of the video
+    */
+    'description': string;
+    'mediumCoverUrl': any;
+    'title': string;
+    /**
+    * The YT video id
+    */
+    'video-id': string;
+  }
+  interface TrkoYtLightAttributes extends StencilHTMLAttributes {
+    'channelTitle'?: string;
+    'clicked'?: boolean;
+    'coverUrl'?: string;
+    /**
+    * Description of the video
+    */
+    'description'?: string;
+    'mediumCoverUrl'?: any;
+    'title'?: string;
+    /**
+    * The YT video id
+    */
+    'video-id'?: string;
+  }
 }
 
 declare global {
@@ -190,6 +221,7 @@ declare global {
     'TrkoHideShow': Components.TrkoHideShow;
     'TrkoImage': Components.TrkoImage;
     'TrkoYoutubeVideo': Components.TrkoYoutubeVideo;
+    'TrkoYtLight': Components.TrkoYtLight;
   }
 
   interface StencilIntrinsicElements {
@@ -200,6 +232,7 @@ declare global {
     'trko-hide-show': Components.TrkoHideShowAttributes;
     'trko-image': Components.TrkoImageAttributes;
     'trko-youtube-video': Components.TrkoYoutubeVideoAttributes;
+    'trko-yt-light': Components.TrkoYtLightAttributes;
   }
 
 
@@ -245,6 +278,12 @@ declare global {
     new (): HTMLTrkoYoutubeVideoElement;
   };
 
+  interface HTMLTrkoYtLightElement extends Components.TrkoYtLight, HTMLStencilElement {}
+  var HTMLTrkoYtLightElement: {
+    prototype: HTMLTrkoYtLightElement;
+    new (): HTMLTrkoYtLightElement;
+  };
+
   interface HTMLElementTagNameMap {
     'trko-annotation': HTMLTrkoAnnotationElement
     'trko-blockquote': HTMLTrkoBlockquoteElement
@@ -253,6 +292,7 @@ declare global {
     'trko-hide-show': HTMLTrkoHideShowElement
     'trko-image': HTMLTrkoImageElement
     'trko-youtube-video': HTMLTrkoYoutubeVideoElement
+    'trko-yt-light': HTMLTrkoYtLightElement
   }
 
   interface ElementTagNameMap {
@@ -263,6 +303,7 @@ declare global {
     'trko-hide-show': HTMLTrkoHideShowElement;
     'trko-image': HTMLTrkoImageElement;
     'trko-youtube-video': HTMLTrkoYoutubeVideoElement;
+    'trko-yt-light': HTMLTrkoYtLightElement;
   }
 
 

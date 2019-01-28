@@ -4,8 +4,7 @@ import { Component, Prop } from '@stencil/core';
 @Component({
   tag: 'trko-box',
   shadow: false,
-  styles: `
-  `
+  styleUrl: 'trko-box.scss'
 })
 export class BoxComponent {
   /**

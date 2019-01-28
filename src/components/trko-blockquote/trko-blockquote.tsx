@@ -1,7 +1,9 @@
 import { Component, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'trko-blockquote'
+  tag: 'trko-blockquote',
+  shadow: false,
+  styleUrl: 'trko-blockquote.scss'
 })
 export class TrkoBlockquoteComponent {
   /**

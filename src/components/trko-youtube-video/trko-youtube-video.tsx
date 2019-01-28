@@ -4,11 +4,7 @@ import { Component, Prop, Element, State } from '@stencil/core';
 @Component({
   tag: 'trko-youtube-video',
   shadow: false,
-  styles: `
-  iframe {
-    display: block;
-  }
-  `
+  styleUrl: '../trko-image/trko-figure.scss'
 })
 export class YoutubeVideoComponent {
   /**

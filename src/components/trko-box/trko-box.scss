@@ -1,0 +1,133 @@
+.trko-box-container {
+  background: var(--background);
+  border-radius: 16px;
+  padding: 14px;
+  margin: 24px 0;
+
+  font-family: var(--font-family);
+}
+
+.trko-box-container.blue {
+  background: #7bbfff49;
+}
+
+.trko-box-container h5 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+.trko-box-container p:last-of-type {
+  margin-bottom: 7px;
+}
+
+.trko-box-container.inline-btns {
+  padding: 0;
+  margin: 0 0 0 0;
+  background: none;
+
+  // To remove after update of Treekoditor
+  h5 {
+    display: none;
+  }
+
+  ul {
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 4px 14px 0;
+      // font-size: 16px;
+
+      &::before {
+        content: '';
+      }
+
+      a {
+        padding: 5px 12px;
+        font-weight: 600;
+        // border: 2px solid;
+        background: #00000014;
+        border-radius: 30px;
+      }
+    }
+  }
+}
+
+.trko-box-container.sommaire {
+  font-size: 0.85rem;
+  background: #f1f1f140;
+
+  h5 {
+    opacity: 0.65;
+    font-size: 12px;
+  }
+
+  ul {
+    padding-left: 3px;
+    list-style-type: none;
+    margin: 0;
+
+    li::before {
+      content: '';
+    }
+  }
+}
+
+.youtube-coverflow {
+  &.trko-box-container {
+    background: transparent;
+    padding: 0;
+    margin-top: 0;
+    margin-left: -14px;
+    margin-right: -14px;
+
+    & > h5 {
+      display: none;
+    }
+  }
+
+  .trko-box-content {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    figure {
+      margin: 14px 7px;
+    }
+
+    trko-yt-light:first-child figure {
+      margin-left: 14px;
+    }
+
+    trko-yt-light:last-child figure {
+      margin-right: 14px;
+    }
+  }
+
+  /* @media screen and (min-width: 600px) {
+    &.trko-box-container {
+      margin-left: -7px;
+      margin-right: -7px;
+    }
+
+    .trko-box-content {
+      flex-wrap: wrap;
+      padding-top: 10px;
+
+      figure {
+        margin: 14px 7px 0 7px;
+      }
+
+      trko-yt-light:first-child figure {
+        margin-left: 7px;
+        // margin-top: 24px;
+      }
+
+      trko-yt-light:last-child figure {
+        margin-right: 7px;
+        // margin-bottom: 24px;
+      }
+    }
+  } */
+}

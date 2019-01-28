@@ -10,9 +10,32 @@
     <script src="/build/mycomponent.js"></script>
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      :root {
+        --youtube-color: red;
+        --border-radius: 16px;
+        --background: #f5f5f5;
+        --primary-color: #0099ff;
+        --opacit-bg: #00000079;
+        --opacit-bg-light: #ffffffb4;
+        --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
       body {
-        width: 700px;
+        max-width: 800px;
         margin: 0 auto;
+        padding: 14px;
+        font-size: 16px;
+        box-shadow: 0 0 0 1px black;
       }
 
       img {
@@ -21,43 +44,42 @@
     </style>
   </head>
   <body>
-    <trko-blockquote
-      quote="bonjour \n ligne suivante"
-      author="Albert Einstein"
-      alignment="right"
-    ></trko-blockquote>
+    <a
+      class="trko-file-link"
+      href="https://trello-attachments.s3.amazonaws.com/5c0fe717e6d8ec78d1e2d6a7/5c370b1b9f4d0853c1841ad0/33029544c938a74840c287012b718572/image.jpeg"
+      >image</a
+    >
 
-    <trko-doc-printer>
-      <!--
-        <h1>Annotation</h1>
-        <trko-annotation annotated="text annotated">
-          Inside anotation
-        </trko-annotation>
+    <h1>Only with treekoditor</h1>
+    <trko-doc-printer></trko-doc-printer>
 
-        <h1>Box</h1>
-        <trko-box heading="Title" class="blue theorem">
-          Hello inside the box
-        </trko-box>
+    <h1>Without treekoditor</h1>
+    <h2>trko-image</h2>
+    <trko-image
+      url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
+      title="title of the image"
+      description="description of the image"
+    ></trko-image>
 
-        <h1>Hide show</h1>
-        <trko-hide-show heading="hide show heading">
-          Hello inside the hide-show
-        </trko-hide-show>
+    <h2>trko-youtube-video</h2>
+    <trko-youtube-video
+      video-id="5LlPJeu9F8I"
+      description="description of the video"
+    ></trko-youtube-video>
 
-        <h1>Image</h1>
-        <trko-image
-          url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
-          title="title of the image"
-          description="description of the image"
-        ></trko-image>
+    <h2>trko-yt-light alone</h2>
+    <trko-yt-light video-id="dNbgFpR2Kyw"></trko-yt-light>
 
-        <h1>Youtube video</h1>
-        <trko-youtube-video
-          video-id="5LlPJeu9F8I"
-          description="description of the video"
-        ></trko-youtube-video>
-      -->
-    </trko-doc-printer>
+    <h2>trko-yt-light inside youtube-coverflow box</h2>
+    <trko-box class="youtube-coverflow">
+      <trko-yt-light video-id="cgw0QhC8XVM"></trko-yt-light>
+      <trko-yt-light video-id="HNKrCTJuS2s"></trko-yt-light>
+      <trko-yt-light video-id="tzhNCpLRtCY"></trko-yt-light>
+      <trko-yt-light video-id="Efs6XCiJcTw"></trko-yt-light>
+      <trko-yt-light video-id="__buaDfeZNg"></trko-yt-light>
+      <trko-yt-light video-id="P0TAyc7jFgU"></trko-yt-light>
+      <trko-yt-light video-id="9-lOBpIzwpo"></trko-yt-light>
+    </trko-box>
 
     <script>
       const printer = document.getElementsByTagName('trko-doc-printer')[0];
@@ -65,35 +87,16 @@
       if (printer) {
         printer.mdHtmlContent = '';
 
-        printer.mdHtmlContent += `<trko-blockquote
-      author="Albert Einstein"
-      alignment="right"
-    >bonjour \n ligne suivante</trko-blockquote>`;
+        printer.mdHtmlContent += `<trko-box class="sommaire" heading="Sommaire">- [Titre 1](#)\n- [Titre 2](#)\n- [Titre 3](#)
+          </trko-box>`;
 
-        printer.mdHtmlContent += `
-        <h1>Annotation</h1>\n<trko-annotation annotated="text annotated">\nInside anotation\n</trko-annotation>
-        `;
+        printer.mdHtmlContent += `<trko-blockquote author="Albert Einstein" alignment="right">bonjour \n ligne suivante</trko-blockquote>`;
+        printer.mdHtmlContent += `<trko-blockquote author="Albert Einstein" alignment="center">bonjour \n ligne suivante</trko-blockquote>`;
+        printer.mdHtmlContent += `<trko-blockquote author="Albert Einstein" alignment="left">bonjour \n ligne suivante</trko-blockquote>`;
+        printer.mdHtmlContent += `\n## Annotation\n<trko-annotation annotated="text annotated">\nInside anotation\n</trko-annotation>`;
+        printer.mdHtmlContent += `\n## Box\n<trko-box heading="Title" class="blue theorem">Hello inside the box</trko-box>`;
+        printer.mdHtmlContent += `\n## Hide show\n<trko-hide-show heading="hide show heading">Hello inside the hide-show</trko-hide-show>`;
 
-        printer.mdHtmlContent += `<h1>Box</h1><trko-box heading="Title" class="blue theorem">Hello inside the box</trko-box>`;
-        printer.mdHtmlContent += `<h1>Hide show</h1><trko-hide-show heading="hide show heading">Hello inside the hide-show</trko-hide-show>`;
-
-        printer.mdHtmlContent += `
-                                            <h1>Image</h1>
-                                            <trko-image
-                                              url="https://cdn-images-1.medium.com/max/2000/1*ASqubrsGsRTIrDh8hNV3HA.jpeg"
-                                              title="title of the image"
-                                              description="description of the image"
-                                            ></trko-image>
-                                            
-                                            <h1>Youtube video</h1>
-                                            <trko-youtube-video
-                                              video-id="5LlPJeu9F8I"
-                                              description="description of the video"
-                                            ></trko-youtube-video>
-                                                                  `.replace(
-          /\n(\s)+/g,
-          '\n'
-        );
         console.log(printer.mdHtmlContent);
       }
     </script>

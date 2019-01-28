@@ -1,10 +1,10 @@
-import { Component, Prop, EventEmitter, Event } from "@stencil/core";
+import { Component, Prop, EventEmitter, Event } from '@stencil/core';
 // import { format } from "../../utils/utils";
 
 @Component({
-  tag: "trko-annotation",
+  tag: 'trko-annotation',
   shadow: false,
-  styles: ``
+  styleUrl: 'trko-annotation.scss'
 })
 export class TrkoAnnotationComponent {
   /**

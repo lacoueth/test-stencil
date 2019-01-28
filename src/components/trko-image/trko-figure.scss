@@ -1,0 +1,57 @@
+trko-image,
+trko-youtube-video {
+  font-family: var(--font-family);
+
+  figure {
+    margin: 24px 0;
+  }
+
+  figure img {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  figcaption {
+    opacity: 0.8;
+    text-align: center;
+    font-weight: 500;
+    margin: 6px 14px;
+    font-size: 13px;
+  }
+
+  .trko-youtube-video-iframe-container {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #e0e0e0;
+
+    iframe {
+      display: block;
+      height: calc(0.54 * 800px);
+    }
+  
+    @media screen and (max-width: 800px) {
+      iframe {
+        height: calc(54vw);
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 400px) {
+    figure {
+      border-radius: 0;
+      overflow: hidden;
+      margin-left: -14px;
+      margin-right: -14px;
+
+      .trko-youtube-video-iframe-container,
+      img {
+        border-radius: 0;
+      }
+
+      iframe {
+        // height: 200px;
+      }
+    }
+  }
+}

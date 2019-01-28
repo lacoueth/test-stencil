@@ -4,8 +4,7 @@ import { Component, Prop } from '@stencil/core';
 @Component({
   tag: 'trko-image',
   shadow: false,
-  styles: `
-  `
+  styleUrl: 'trko-figure.scss'
 })
 export class TrkoImageComponent {
   /**

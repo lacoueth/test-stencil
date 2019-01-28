@@ -4,8 +4,7 @@ import { Component, Prop } from '@stencil/core';
 @Component({
   tag: 'trko-hide-show',
   shadow: false,
-  styles: `
-  `
+  styleUrl: 'trko-hide-show.scss'
 })
 export class TrkoHideShowComponent {
   /**
@@ -21,11 +20,12 @@ export class TrkoHideShowComponent {
   render() {
     return (
       <div class="trko-hide-show-container">
-        <div class="trko-hide-show-head">
+        <div
+          class="trko-hide-show-head"
+          onClick={() => (this.close = !this.close)}
+        >
           <h5>{this.heading}</h5>
-          <button onClick={() => (this.close = !this.close)}>
-            {this.close ? 'Afficher' : 'Masquer'}
-          </button>
+          <button>{this.close ? 'Développer' : 'Réduire'}</button>
         </div>
 
         <div
