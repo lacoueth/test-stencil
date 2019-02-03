@@ -17,21 +17,25 @@ export namespace Components {
     * The content annotated
     */
     'annotated': string;
+    'annotatedText': string;
     /**
     * The content of the annotation
     */
     'annotation': string;
+    'styleExt': { [key: string]: string };
   }
   interface TrkoAnnotationAttributes extends StencilHTMLAttributes {
     /**
     * The content annotated
     */
     'annotated'?: string;
+    'annotatedText'?: string;
     /**
     * The content of the annotation
     */
     'annotation'?: string;
     'onAnnotationClick'?: (event: CustomEvent) => void;
+    'styleExt'?: { [key: string]: string };
   }
 
   interface TrkoBlockquote {
@@ -189,6 +193,7 @@ export namespace Components {
     */
     'description': string;
     'mediumCoverUrl': any;
+    'src': string;
     'title': string;
     /**
     * The YT video id
@@ -204,6 +209,7 @@ export namespace Components {
     */
     'description'?: string;
     'mediumCoverUrl'?: any;
+    'src'?: string;
     'title'?: string;
     /**
     * The YT video id

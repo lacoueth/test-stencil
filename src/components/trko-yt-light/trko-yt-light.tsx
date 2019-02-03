@@ -1,4 +1,4 @@
-import { Component, Prop, Element } from '@stencil/core';
+import { Component, Prop, Element, State } from '@stencil/core';
 // import { format } from "../../utils/utils";
 
 @Component({
@@ -20,32 +20,77 @@ export class YtLightComponent {
   @Prop({ mutable: true }) title: string = '...';
 
   @Prop({ mutable: true }) coverUrl: string;
-  @Prop({ mutable: true }) mediumCoverUrl: any = { url: 'https://www.dickson-constant.com/medias/images/catalogue/api/m654-grey-680.jpg' };
+
+  @Prop({ mutable: true }) mediumCoverUrl: any = {
+    url: `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPc+hMAAmkBsC6e4w0AAAAASUVORK5CYII=`
+  };
   @Prop({ mutable: true }) channelTitle: string = '...';
 
   @Prop({ mutable: true }) clicked = false;
 
   @Element() el: HTMLElement;
 
+  @Prop() src: string;
+  @State() realSrc: string;
+
+  io: IntersectionObserver;
+
   componentDidLoad() {
-    console.log('compo did load');
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver((data: any[]) => {
+        if (data[0].isIntersecting) {
+          this.fetchData();
+          this.cleanup();
+        }
+      });
+
+      this.io.observe(this.el.querySelector('img'));
+    } else {
+      this.handleIframe();
+    }
+  }
+
+  fetchData() {
+    // console.log('compo did load');
     return fetch(
       'https://us-central1-nnnnseo.cloudfunctions.net/getYoutubeData?videoId=' +
         this['video-id']
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         const obj = JSON.parse(data.body).items[0];
 
-        console.log(obj);
+        // console.log(obj);
 
         this.title = obj.snippet.title;
         this.description = obj.snippet.description;
-        this.coverUrl = obj.snippet.thumbnails.standard.url;
-        this.mediumCoverUrl = obj.snippet.thumbnails.medium;
+        this.coverUrl =
+          obj.snippet.thumbnails.standard.url ||
+          obj.snippet.thumbnails.default.url;
+        this.mediumCoverUrl = obj.snippet.thumbnails.medium || {
+          url: this.coverUrl
+        };
         this.channelTitle = obj.snippet.channelTitle;
       });
+  }
+
+  componentDidUnload() {
+    this.cleanup();
+  }
+
+  handleIframe() {
+    this.realSrc = this.getEmbedUrl();
+  }
+
+  cleanup() {
+    // always make sure we remove the intersection
+    // observer when its served its purpose so we dont
+    // eat cpu cycles unnecessarily
+    if (this.io) {
+      this.io.disconnect();
+      this.io = null;
+    }
   }
 
   getYtUrl() {

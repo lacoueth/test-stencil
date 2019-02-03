@@ -4,11 +4,36 @@ trko-youtube-video {
 
   figure {
     margin: 24px 0;
+    position: relative;
+    display: block;
+
+    .trko-image-wrapper {
+      position: relative;
+    }
   }
 
   figure img {
     width: 100%;
     border-radius: 16px;
+  }
+
+  figure {
+    .trko-image-zoom-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: var(--primary-color);
+      font-size: 12px;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: var(--border-radius);
+      background: rgba(256, 256, 256, 0.5);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   figcaption {
@@ -28,14 +53,13 @@ trko-youtube-video {
       display: block;
       height: calc(0.54 * 800px);
     }
-  
+
     @media screen and (max-width: 800px) {
       iframe {
         height: calc(54vw);
       }
     }
   }
-
 
   @media screen and (max-width: 400px) {
     figure {

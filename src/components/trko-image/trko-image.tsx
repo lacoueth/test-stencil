@@ -25,8 +25,14 @@ export class TrkoImageComponent {
   render() {
     return (
       <figure>
-        <img src={this.url} alt={this.description} title={this.title} />
+        <div class="trko-image-wrapper">
+          <img src={this.url} alt={this.description} title={this.title} />
+          <slot />
+        </div>
         <figcaption>{this.title}</figcaption>
+        <a class="trko-image-zoom-btn" href={this.url}>
+          Agrandir
+        </a>
       </figure>
     );
   }
