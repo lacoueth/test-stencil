@@ -7,10 +7,12 @@
 
 ## Properties
 
-| Property     | Attribute    | Description                   | Type     | Default     |
-| ------------ | ------------ | ----------------------------- | -------- | ----------- |
-| `annotated`  | `annotated`  | The content annotated         | `string` | `undefined` |
-| `annotation` | `annotation` | The content of the annotation | `string` | `undefined` |
+| Property        | Attribute        | Description                   | Type                         | Default     |
+| --------------- | ---------------- | ----------------------------- | ---------------------------- | ----------- |
+| `annotated`     | `annotated`      | The content annotated         | `string`                     | `undefined` |
+| `annotatedText` | `annotated-text` |                               | `string`                     | `''`        |
+| `annotation`    | `annotation`     | The content of the annotation | `string`                     | `undefined` |
+| `styleExt`      | --               |                               | `{ [key: string]: string; }` | `{}`        |
 
 
 ## Events
