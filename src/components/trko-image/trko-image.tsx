@@ -30,7 +30,7 @@ export class TrkoImageComponent {
           <slot />
         </div>
         <figcaption>{this.title}</figcaption>
-        <a class="trko-image-zoom-btn" href={this.url}>
+        <a class="trko-image-zoom-btn" href={this.url} target="_blank">
           Agrandir
         </a>
       </figure>
