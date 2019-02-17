@@ -20,7 +20,9 @@ export class BoxComponent {
   @Prop() id: string;
 
   getClasses() {
-    return `trko-box-container ${this.class}`;
+    return `trko-box-container ${this.class || ''} ${
+      this.heading && this.heading.endsWith('retenir') ? 'reminder' : ''
+    }`;
   }
 
   render() {
