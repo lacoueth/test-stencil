@@ -3,7 +3,7 @@ trko-youtube-video {
   font-family: var(--font-family);
 
   figure {
-    margin: 24px 0;
+    margin: 1.5em 0;
     position: relative;
     display: block;
 
@@ -14,21 +14,22 @@ trko-youtube-video {
 
   figure img {
     width: 100%;
-    border-radius: 16px;
+    border-radius: var(--border-radius);
   }
 
   figure {
     .trko-image-zoom-btn {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      right: 0.63em;
+      top: 0.63em;
       color: var(--primary-color);
-      font-size: 12px;
-      font-weight: 500;
+      font-family: var(--default-font);
+      font-size: 0.75em;
+      font-weight: 600;
       text-decoration: none;
-      padding: 4px 8px;
+      padding: 0.25em 0.5em;
       border-radius: var(--border-radius);
-      background: rgba(256, 256, 256, 0.5);
+      background: rgba(256, 256, 256, 0.68);
 
       &:hover {
         text-decoration: underline;
@@ -40,12 +41,12 @@ trko-youtube-video {
     opacity: 0.8;
     text-align: center;
     font-weight: 500;
-    margin: 6px 14px;
-    font-size: 13px;
+    margin: 0.38em 0.88em;
+    font-size: 0.81em;
   }
 
   .trko-youtube-video-iframe-container {
-    border-radius: 16px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     background: #e0e0e0;
 
@@ -65,8 +66,8 @@ trko-youtube-video {
     figure {
       border-radius: 0;
       overflow: hidden;
-      margin-left: -14px;
-      margin-right: -14px;
+      margin-left: -0.88em;
+      margin-right: -0.88em;
 
       .trko-youtube-video-iframe-container,
       img {

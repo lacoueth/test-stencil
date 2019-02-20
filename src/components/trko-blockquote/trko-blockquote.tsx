@@ -42,7 +42,19 @@ export class TrkoBlockquoteComponent {
         <blockquote class="trko-blockquote">
           <slot />
         </blockquote>
-        <div class="trko-blockquote-author">{this.author}</div>
+        <div class="trko-blockquote-author">
+          {this.author}
+          {this.link && this.link !== 'undefined' ? (
+            <span>
+              {' - '}
+              <a href={this.link} target="_blank">
+                source
+              </a>
+            </span>
+          ) : (
+            ''
+          )}
+        </div>
       </div>
     );
   }

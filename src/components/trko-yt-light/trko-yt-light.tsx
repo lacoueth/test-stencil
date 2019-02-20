@@ -65,9 +65,9 @@ export class YtLightComponent {
 
         this.title = obj.snippet.title;
         this.description = obj.snippet.description;
-        this.coverUrl =
-          obj.snippet.thumbnails.standard.url ||
-          obj.snippet.thumbnails.default.url;
+        this.coverUrl = obj.snippet.thumbnails.standard
+          ? obj.snippet.thumbnails.standard.url
+          : obj.snippet.thumbnails.default.url;
         this.mediumCoverUrl = obj.snippet.thumbnails.medium || {
           url: this.coverUrl
         };

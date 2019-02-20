@@ -26,10 +26,10 @@ export class TrkoAnnotationComponent {
   componentDidLoad() {
     const regex = /(([0-9]*(\.[0-9])?):){3}([0-9]*(\.[0-9])?)/;
     if (this.annotated.match(regex)) {
-      console.log('regex found');
+      // console.log('regex found');
       // xOffset:yOffset:length:height
       const params = this.annotated.split(':');
-      console.log(params);
+      // console.log(params);
       this.styleExt = {
         position: 'absolute',
         left: params[0] + '%',
